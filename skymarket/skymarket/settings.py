@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "drf_spectacular",
     "rest_framework",
     "users",
     "ads",
@@ -82,7 +83,15 @@ WSGI_APPLICATION = "skymarket.wsgi.application"
 
 # TODO здесь мы настраиваем аутентификацию и пагинацию
 REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'SkyMarket API',
+    'DESCRIPTION': 'Welcome to SkyMarket',
+    'VERSION': '1.0.0',
+}
+
 # TODO здесь мы настраиваем Djoser
 DJOSER = {
 }
