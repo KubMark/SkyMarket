@@ -12,4 +12,6 @@ class UserRegistrationSerializer(BaseUserRegistrationSerializer):
 
 
 class CurrentUserSerializer(serializers.ModelSerializer):
-    pass
+    class Meta:
+        model = User
+        exclude = ["role"]

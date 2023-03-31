@@ -34,7 +34,8 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
-# TODO здесь тоже нужно подключить Swagger и corsheaders
+AUTH_USER_MODEL = "users.User"
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -49,6 +50,8 @@ INSTALLED_APPS = [
     "ads",
     "redoc",
     "corsheaders",
+    "rest_framework_simplejwt",
+
 ]
 
 
