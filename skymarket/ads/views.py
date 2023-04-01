@@ -12,8 +12,10 @@ class AdPagination(pagination.PageNumberPagination):
 
 
 class AdViewSet(viewsets.ModelViewSet):
-    serializer_class = AdSerializer
     queryset = Ad.objects.all()
+
+    serializer_class = AdSerializer
+
     serializer = {"list": AdSerializer}
     default_permission = [IsAuthenticated]
     pagination_class = AdPagination
