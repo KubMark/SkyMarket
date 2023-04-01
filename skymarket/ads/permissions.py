@@ -1,13 +1,12 @@
 from rest_framework.permissions import BasePermission
 
-from users.managers import UserRoles
-
 
 class IsOwner(BasePermission):# Право доступа пользователя
+    message = "You don't have the permission to make changes"
+
     def has_object_permission(self, request, view, obj):
-        return obj.author == request.user
+        if request.user.is_anonymous:
+            return False
+        role = request.user.role
 
-
-class IsAdmin(BasePermission):# Право доступа пользователя
-    def has_permission(self, request, view):
-        return request.user.role == UserRoles.ADMIN
+        return request.user.id == obj.author.id or role == "admin"
