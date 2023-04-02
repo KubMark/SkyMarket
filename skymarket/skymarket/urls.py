@@ -18,9 +18,10 @@ urlpatterns = [
     path("api/schema/swagger-ui", SpectacularSwaggerView.as_view(url_name='schema')),
 
     path("api/token/", TokenObtainPairView.as_view(), name="token_obtain"),
-    path("api/token/refresh/", TokenRefreshView.as_view(), name='token_refresh'),
+    path("refresh/", TokenRefreshView.as_view(), name='token_refresh'),
 
     path("api/", include("users.urls")),
+    path("api/", include(users_router.urls)),
     path("api/", include("ads.urls")),
 
 
